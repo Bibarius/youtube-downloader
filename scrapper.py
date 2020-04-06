@@ -1,5 +1,5 @@
 from pytube import YouTube
-from json import JSONEncoder
+import json
 
 
 def get_download_urls(url):
@@ -8,4 +8,4 @@ def get_download_urls(url):
     for stream in streams:
         links.append({stream.resolution: stream.url})
 
-    return links
+    return json.dumps(links)
