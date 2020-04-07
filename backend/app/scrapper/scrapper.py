@@ -1,12 +1,14 @@
-import json
-
 from pytube import YouTube
 
 
-def get_download_urls(url):
+def get_download_urls(url) -> list:
     links = []
     streams = YouTube(url).streams.filter(progressive=True)
     for stream in streams:
         links.append({stream.resolution: stream.url})
 
-    return json.dumps(links)
+    return links
+
+
+# url = "https://www.youtube.com/watch?v=5wMAPUrd0ag"
+# print(get_download_urls(url))

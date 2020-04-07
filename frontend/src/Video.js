@@ -5,7 +5,12 @@ class Video extends React.Component {
     render() {
         return (
             <div className="video">
-                <h1>Здесь будет видео</h1>
+                <h3>Вставьте сюда ссылку</h3>
+                <form>
+                    <input type="text" class="input"></input>
+                    <input type="submit" class="download-button"></input>
+                </form>
+
             </div>
         );
     }
