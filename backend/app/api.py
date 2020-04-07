@@ -1,9 +1,11 @@
 from flask import Flask, request
+from flask_cors import CORS
 from flask_restful import Api, Resource, reqparse
 from scrapper.scrapper import *
 
 app = Flask(__name__)
 api = Api(app)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 
 @api.resource("/api")
