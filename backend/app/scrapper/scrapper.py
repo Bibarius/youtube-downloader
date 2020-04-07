@@ -1,14 +1,10 @@
-from pytube import YouTube
+from pytube import YouTube, exceptions
 
 
 def get_download_urls(url) -> list:
-    links = []
+    links = {}
     streams = YouTube(url).streams.filter(progressive=True)
     for stream in streams:
-        links.append({stream.resolution: stream.url})
+        links[stream.resolution] = stream.url
 
     return links
-
-
-# url = "https://www.youtube.com/watch?v=5wMAPUrd0ag"
-# print(get_download_urls(url))
